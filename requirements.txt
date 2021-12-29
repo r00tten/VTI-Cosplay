@@ -1,0 +1,4 @@
+requests
+yaml
+slack
+slackeventsapi
