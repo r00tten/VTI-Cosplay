@@ -1,6 +1,59 @@
 # VTI-Cosplay
 This project is designed to be a solution for the lack of the VirusTotal Hunting license(_YARA search capability_). It uses VirusTotal's _Content Search_ feature to simulate YARA scanning. 
 
+~~~
+r00tten@vti-cosplay VTI-Cosplay % python3 vti-cosplay.py -h
+
+                                      ,(#*                                                   
+                                      ,(#*.                                                  
+                             *********(##*          ,**********.                             
+                            .%%#////////*,         .,///////(%#,                             
+                            .%%*                            *%#,                             
+                            .%%*                            *%#,                             
+                            .%%*                            *%#/,,,,,,                       
+                                           ,(%%/.           ,(((((((((.                      
+                                        ./#%%%%%%#*                                          
+                                          *#%%%%(,                                           
+                     /((((((((*.           ,(*.                                              
+                      ,,*,*,*#%/.                          .*(*.                             
+                            .(%/.                          ./%/.                             
+                            .(%/.                          ./%/.                             
+                            .(%#///////*.        .*/////////#%/.                             
+                             **////////*.        .#%#/////////,.                             
+                                                 .##/                                        
+                                                 .##/                                        
+                                                 ,,.                                         
+
+██╗   ██╗████████╗██╗               ██████╗ ██████╗ ███████╗██████╗ ██╗      █████╗ ██╗   ██╗
+██║   ██║╚══██╔══╝██║              ██╔════╝██╔═══██╗██╔════╝██╔══██╗██║     ██╔══██╗╚██╗ ██╔╝
+██║   ██║   ██║   ██║    █████╗    ██║     ██║   ██║███████╗██████╔╝██║     ███████║ ╚████╔╝ 
+╚██╗ ██╔╝   ██║   ██║    ╚════╝    ██║     ██║   ██║╚════██║██╔═══╝ ██║     ██╔══██║  ╚██╔╝  
+ ╚████╔╝    ██║   ██║              ╚██████╗╚██████╔╝███████║██║     ███████╗██║  ██║   ██║   
+  ╚═══╝     ╚═╝   ╚═╝               ╚═════╝ ╚═════╝ ╚══════╝╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝   
+
+
+usage: VTI-Cosplay [-h] -y YARA_FILE [-k API_KEY] [-l LIMIT] [-a ACTION]
+                   [--livehunt] [-f] [-v] [-i I_DONT_TRUST_YOU]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -y YARA_FILE, --yara-file YARA_FILE
+                        YARA file
+  -k API_KEY, --api-key API_KEY
+                        Virustotal API key
+  -l LIMIT, --limit LIMIT
+                        Limit total matched sample count
+  -a ACTION, --action ACTION
+                        Action module to trigger for matched samples
+  --livehunt            Create scheduled task for the YARA file provided. When
+                        a new sample is out there it prints and stores
+  -f, --fast            Fast scan by reducing the data that is transferred
+  -v, --verbose         Verbose output
+  -i I_DONT_TRUST_YOU, --i-dont-trust-you I_DONT_TRUST_YOU
+                        At the end, it downloads matched files and does YARA
+                        scan against them
+~~~
+
 Content Search is really helpful when someone would like to deepen its search across VirusTotal's vast database. It is very similar to YARA. Certain byte patterns at a certain location can be easily searched. A YARA rule is contracted by a combination of patterns and conditions of them. So technically they are almost interchangeable. 
 
 This project is a YARA interpreter for the VirusTotal. The working principle:
