@@ -167,6 +167,7 @@ def main() -> None:
             r_logger.logResults(d_doublecheck.sArr)
         else:
             r_logger.logResults(hList)
+        print()
         s_printer.prettyPrint(hList)
 
 if (__name__ == "__main__"):

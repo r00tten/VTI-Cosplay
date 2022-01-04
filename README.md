@@ -63,7 +63,7 @@ This project is a YARA interpreter for the VirusTotal. The working principle:
 * Making VirusTotal API requests
 * Merging the results according to the rule's condition.
 
-[![asciicast](https://asciinema.org/a/BMVqET0qPJ6didxzBMmMnAIgC.svg)](https://asciinema.org/a/BMVqET0qPJ6didxzBMmMnAIgC)
+[![asciicast](https://asciinema.org/a/AAX1qkDVnFiDa5CFVO0y8NFXd.svg)](https://asciinema.org/a/AAX1qkDVnFiDa5CFVO0y8NFXd)
 
 ## Additional Features
 Because at the end of the pipeline the VirusTotal API is used, it is completely possible to create a YARA rule that contains VirusTotal specific queries at the _condition_ part of the rule:
@@ -94,7 +94,7 @@ rule Stuxnet_Malware_4
 
 In this example, VirusTotal's _similar-to_ capability is used to hunt more.
 
-[![asciicast](https://asciinema.org/a/TfOveVMAj6BSH5rMe5dTv7bEw.svg)](https://asciinema.org/a/TfOveVMAj6BSH5rMe5dTv7bEw)
+[![asciicast](https://asciinema.org/a/0zF6JGASnooaYIWjVGJ4Iez3Q.svg)](https://asciinema.org/a/0zF6JGASnooaYIWjVGJ4Iez3Q)
 
 ---
 The other useful feature of the VTI-Cosplay is __action modules__. It gives an opportunity to take action against matched samples. In this way, one can send a Slack message or leave a comment for the sample on the VirusTotal without any hassle.
