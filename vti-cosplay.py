@@ -7,11 +7,11 @@ import importlib
 import threading
 import subprocess
 
-from scan import VTscan
-from record import logger
-from screen import printer
-from yaraParser import parser
-from download import doublecheck
+from utils.scan import VTscan
+from utils.record import logger
+from utils.screen import printer
+from utils.yaraParser import parser
+from utils.download import doublecheck
 
 from typing import Dict, List
 
@@ -51,22 +51,22 @@ def main() -> None:
         nargs=1,
         required=False,
         help='Action module to trigger for matched samples')
-    # argumentParser.add_argument(
-    #     '--livehunt',
-    #     action='store_true',
-    #     required=False,
-    #     help='Create scheduled task for the YARA file provided.\
-    #           When a new sample is out there it prints and stores')
+    argumentParser.add_argument(
+        '--livehunt',
+        action='store_true',
+        required=False,
+        help='Create scheduled task for the YARA file provided.\
+              When a new sample is out there it prints and stores')
     argumentParser.add_argument(
         '-f', '--fast',
         action='store_true',
         required=False,
         help='Fast scan by reducing the data that is transferred')
-    # argumentParser.add_argument(
-    #     '-v', '--verbose',
-    #     action='store_true',
-    #     required=False,
-    #     help='Verbose output')
+    argumentParser.add_argument(
+        '-v', '--verbose',
+        action='store_true',
+        required=False,
+        help='Verbose output')
     argumentParser.add_argument(
         '-i', '--i-dont-trust-you',
         nargs=1,
