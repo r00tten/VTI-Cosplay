@@ -1,5 +1,5 @@
 # VTI-Cosplay
-This project is designed to be a solution for the lack of the VirusTotal Hunting license(_YARA search capability_). It uses VirusTotal's _Content Search_ feature to simulate YARA scanning. 
+vti-cosplay is a solution to the problem due to the lack of a Virustotal Enterprise license. First, it parses the YARA rule, maps each atomic entry to Virustotal API endpoints, and merges individual results. Subsequently, it mimics the YARA scan on the Virustotal platform.
 
 ~~~
 r00tten@vti-cosplay VTI-Cosplay % python3 vti-cosplay.py -h
@@ -54,19 +54,12 @@ optional arguments:
                         scan against them
 ~~~
 
-Content Search is really helpful when someone would like to deepen its search across VirusTotal's vast database. It is very similar to YARA. Certain byte patterns at a certain location can be easily searched. A YARA rule is contracted by a combination of patterns and conditions of them. So technically they are almost interchangeable. 
-
-This project is a YARA interpreter for the VirusTotal. The working principle:
-* Parsing the YARA rule 
-* Creating queries for it
-* Optimizing them to use less quota
-* Making VirusTotal API requests
-* Merging the results according to the rule's condition.
+VirusTotal's Content Search(VTGrep) capability provides pattern search in its database. On the other hand, a YARA rule is a combination of the patterns and their conditions. Therefore, a YARA rule can be mapped to a couple of Content Search queries to a certain extent. vti-cosplay interprets a rule and then evaluates different results to combine them with respect to the rule.
 
 [![asciicast](https://asciinema.org/a/AAX1qkDVnFiDa5CFVO0y8NFXd.svg)](https://asciinema.org/a/AAX1qkDVnFiDa5CFVO0y8NFXd)
 
 ## Additional Features
-Because at the end of the pipeline the VirusTotal API is used, it is completely possible to create a YARA rule that contains VirusTotal specific queries at the _condition_ part of the rule:
+At the end of the interpretation, the VirusTotal queries are searched. This provides to create hybrid rules, rules that contain plain VT queries in its condition part. In this way hunting process's range can be broadened.
 ~~~
 rule Stuxnet_Malware_4 
 {
@@ -97,7 +90,7 @@ In this example, VirusTotal's _similar-to_ capability is used to hunt more.
 [![asciicast](https://asciinema.org/a/0zF6JGASnooaYIWjVGJ4Iez3Q.svg)](https://asciinema.org/a/0zF6JGASnooaYIWjVGJ4Iez3Q)
 
 ---
-The other useful feature of the VTI-Cosplay is __action modules__. It gives an opportunity to take action against matched samples. In this way, one can send a Slack message or leave a comment for the sample on the VirusTotal without any hassle.
+vti-cosplay's capability can be extended with action modules; further procedures can apply to the result. The goal can vary from sending a Slack message or adding a VT comment to downloading and running complex algorithms against the samples.
 
 ~~~
 import json
@@ -141,3 +134,5 @@ class trigger:
         except Exception as e:
             print(e)
 ~~~
+---
+For the blog post of the project: https://r00tten.com/vti-cosplay/
